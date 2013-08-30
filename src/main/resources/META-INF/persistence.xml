@@ -4,6 +4,8 @@
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
   <persistence-unit name="todos" transaction-type="RESOURCE_LOCAL">
   	<class>nl.topicus.lan.dashboard.entities.BaseEntity</class>
+  	<class>nl.topicus.lan.dashboard.entities.Lan</class>
+  	<class>nl.topicus.lan.dashboard.entities.BaseLanEntity</class>
    	<class>nl.topicus.lan.dashboard.entities.person.Account</class>
    	<class>nl.topicus.lan.dashboard.entities.person.Profile</class>
 
@@ -11,8 +13,8 @@
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
       <property name="javax.persistence.jdbc.url"
         value="jdbc:derby:target/portal;create=true" />
-      <property name="javax.persistence.jdbc.user" value="dashboard1" />
-      <property name="javax.persistence.jdbc.password" value="dashboard1" />
+      <property name="javax.persistence.jdbc.user" value="dashboard2" />
+      <property name="javax.persistence.jdbc.password" value="dashboard2" />
 
       <!-- EclipseLink should create the database schema automatically -->
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
