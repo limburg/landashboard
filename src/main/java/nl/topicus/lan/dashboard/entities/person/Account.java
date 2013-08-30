@@ -2,8 +2,6 @@ package nl.topicus.lan.dashboard.entities.person;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import nl.topicus.cobra.entities.RestrictedAccess;
@@ -22,8 +20,7 @@ public class Account extends BaseLanEntity
 	@RestrictedAccess(hasSetter = false)
 	private String username;
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "account")
-	@JoinColumn(nullable = true)
+	@OneToOne(mappedBy = "account")
 	private Profile profile;
 
 	public String getUsername()

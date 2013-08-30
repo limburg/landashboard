@@ -2,22 +2,25 @@ package nl.topicus.lan.dashboard.entities.person;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
-import nl.topicus.cobra.types.personalia.Geslacht;
 import nl.topicus.lan.dashboard.entities.BaseLanEntity;
 
-import org.hibernate.annotations.AccessType;
-
 @Entity
-@AccessType("field")
 public class Profile extends BaseLanEntity
 {
 	private static final long serialVersionUID = 1L;
 
-	@JoinColumn(nullable = false)
+	public enum Gender
+	{
+		Male,
+		Female,
+		Undisclosed
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
 	private Account account;
 
 	/**
@@ -37,10 +40,6 @@ public class Profile extends BaseLanEntity
 
 	@Column(nullable = false)
 	private String lastname;
-
-	@Enumerated(value = EnumType.STRING)
-	@Column(nullable = false)
-	private Geslacht gender;
 
 	@Column(nullable = false)
 	private int tableNumber;
@@ -93,16 +92,6 @@ public class Profile extends BaseLanEntity
 	public void setLastname(String lastname)
 	{
 		this.lastname = lastname;
-	}
-
-	public Geslacht getGender()
-	{
-		return gender;
-	}
-
-	public void setGender(Geslacht gender)
-	{
-		this.gender = gender;
 	}
 
 	public int getTableNumber()
