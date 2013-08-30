@@ -1,6 +1,6 @@
 package nl.topicus.lan.dashboard.entities;
 
-import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 
 import nl.topicus.lan.dashboard.dao.filters.LanZoekFilter;
@@ -16,12 +16,12 @@ public class BaseLanEntity extends BaseEntity
 
 	public static final String defaultLan = "TopiLan";
 
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private Lan lan;
 
 	public BaseLanEntity()
 	{
-		setDefaultLan();
+		// setDefaultLan();
 	}
 
 	public void setDefaultLan()

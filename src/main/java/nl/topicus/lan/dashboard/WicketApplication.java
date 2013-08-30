@@ -86,7 +86,7 @@ public class WicketApplication extends WebApplication
 	private void addTestData()
 	{
 		Lan newLan = new Lan(BaseLanEntity.defaultLan);
-		newLan.saveOrUpdate();
+		newLan.saveOrUpdateAndCommit();
 
 		Account newAccount = new Account("test");
 		newAccount.saveOrUpdateAndCommit();

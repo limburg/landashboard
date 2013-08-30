@@ -55,7 +55,7 @@ public class ProfilePage extends AbstractSecureBasePage
 		form.add(new TextField<String>("surname"));
 		form.add(new TextField<String>("lastname"));
 		form.add(new DropDownChoice<Geslacht>("gender"));
-		form.add(new TextField<Integer>("table"));
+		form.add(new TextField<Integer>("tableNumber"));
 
 		add(form);
 	}
