@@ -1,6 +1,5 @@
 package nl.topicus.lan.dashboard.pages.personal;
 
-import nl.topicus.cobra.types.personalia.Geslacht;
 import nl.topicus.lan.dashboard.DashboardSession;
 import nl.topicus.lan.dashboard.dao.providers.ProfileProvider;
 import nl.topicus.lan.dashboard.entities.person.Profile;
@@ -12,6 +11,8 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
+
+import com.ibm.icu.util.GenderInfo.Gender;
 
 public class ProfilePage extends AbstractSecureBasePage
 {
@@ -54,7 +55,7 @@ public class ProfilePage extends AbstractSecureBasePage
 		form.add(new TextField<String>("name"));
 		form.add(new TextField<String>("surname"));
 		form.add(new TextField<String>("lastname"));
-		form.add(new DropDownChoice<Geslacht>("gender"));
+		form.add(new DropDownChoice<Gender>("gender"));
 		form.add(new TextField<Integer>("tableNumber"));
 
 		add(form);

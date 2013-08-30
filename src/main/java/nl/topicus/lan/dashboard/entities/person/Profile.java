@@ -4,10 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 
-import nl.topicus.cobra.types.personalia.Geslacht;
 import nl.topicus.lan.dashboard.entities.BaseLanEntity;
 
 import org.hibernate.annotations.AccessType;
+
+import com.ibm.icu.util.GenderInfo.Gender;
 
 @Entity
 @AccessType("field")
@@ -37,7 +38,7 @@ public class Profile extends BaseLanEntity
 	private String lastname;
 
 	@Column(nullable = false)
-	private Geslacht gender;
+	private Gender gender;
 
 	@Column(nullable = false)
 	private int tableNumber;
@@ -92,12 +93,12 @@ public class Profile extends BaseLanEntity
 		this.lastname = lastname;
 	}
 
-	public Geslacht getGender()
+	public Gender getGender()
 	{
 		return gender;
 	}
 
-	public void setGender(Geslacht gender)
+	public void setGender(Gender gender)
 	{
 		this.gender = gender;
 	}
