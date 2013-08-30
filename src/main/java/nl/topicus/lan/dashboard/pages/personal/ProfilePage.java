@@ -92,9 +92,4 @@ public class ProfilePage extends AbstractSecureBasePage
 		return model;
 	}
 
-	@Override
-	public void onDetach()
-	{
-		profileModel.detach();
-	}
 }

@@ -77,8 +77,8 @@ public class TablePanel extends Panel
 		try
 		{
 			options.put("tableMap", mapper.writeValueAsString(tableMap));
-			options.put("xsize", "15");
-			options.put("ysize", "15");
+			options.put("xsize", "20");
+			options.put("ysize", "20");
 		}
 		catch (JsonGenerationException e)
 		{
