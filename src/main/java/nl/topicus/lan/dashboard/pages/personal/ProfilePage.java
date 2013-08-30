@@ -9,6 +9,7 @@ import nl.topicus.lan.dashboard.models.ELModelFactory;
 import nl.topicus.lan.dashboard.pages.AbstractSecureBasePage;
 
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 
@@ -59,6 +60,17 @@ public class ProfilePage extends AbstractSecureBasePage
 
 		form.add(fieldset);
 
+		add(new Link<Void>("tableLink")
+		{
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick()
+			{
+				setResponsePage(TablePage.class);
+
+			}
+		});
 		add(form);
 	}
 
