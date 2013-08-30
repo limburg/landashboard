@@ -7,13 +7,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import nl.topicus.cobra.entities.RestrictedAccess;
-import nl.topicus.lan.dashboard.entities.BaseEntity;
+import nl.topicus.lan.dashboard.entities.BaseLanEntity;
 
 import org.hibernate.annotations.AccessType;
 
 @Entity
 @AccessType("field")
-public class Account extends BaseEntity
+public class Account extends BaseLanEntity
 {
 
 	private static final long serialVersionUID = 1L;

@@ -12,6 +12,8 @@ import nl.topicus.cobra.converters.DoubleConverter;
 import nl.topicus.cobra.converters.DutchDateConverter;
 import nl.topicus.cobra.converters.TimeConverter;
 import nl.topicus.cobra.entities.Time;
+import nl.topicus.lan.dashboard.entities.BaseLanEntity;
+import nl.topicus.lan.dashboard.entities.Lan;
 import nl.topicus.lan.dashboard.entities.person.Account;
 import nl.topicus.lan.dashboard.pages.HomePage;
 import nl.topicus.lan.dashboard.pages.personal.ProfilePage;
@@ -83,6 +85,9 @@ public class WicketApplication extends WebApplication
 
 	private void addTestData()
 	{
+		Lan newLan = new Lan(BaseLanEntity.defaultLan);
+		newLan.saveOrUpdate();
+
 		Account newAccount = new Account("test");
 		newAccount.saveOrUpdateAndCommit();
 	}

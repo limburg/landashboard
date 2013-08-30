@@ -5,13 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 
 import nl.topicus.cobra.types.personalia.Geslacht;
-import nl.topicus.lan.dashboard.entities.BaseEntity;
+import nl.topicus.lan.dashboard.entities.BaseLanEntity;
 
 import org.hibernate.annotations.AccessType;
 
 @Entity
 @AccessType("field")
-public class Profile extends BaseEntity
+public class Profile extends BaseLanEntity
 {
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class Profile extends BaseEntity
 	private Geslacht gender;
 
 	@Column(nullable = false)
-	private int table;
+	private int tableNumber;
 
 	public Account getAccount()
 	{
@@ -102,14 +102,14 @@ public class Profile extends BaseEntity
 		this.gender = gender;
 	}
 
-	public int getTable()
+	public int getTableNumber()
 	{
-		return table;
+		return tableNumber;
 	}
 
-	public void setTable(int table)
+	public void setTableNumber(int tableNumber)
 	{
-		this.table = table;
+		this.tableNumber = tableNumber;
 	}
 
 }
