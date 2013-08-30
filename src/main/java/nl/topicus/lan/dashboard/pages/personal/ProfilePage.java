@@ -1,18 +1,16 @@
 package nl.topicus.lan.dashboard.pages.personal;
 
+import nl.topicus.cobra.web.components.form.AutoFieldSet;
+import nl.topicus.cobra.web.components.form.RenderMode;
 import nl.topicus.lan.dashboard.DashboardSession;
 import nl.topicus.lan.dashboard.dao.providers.ProfileProvider;
 import nl.topicus.lan.dashboard.entities.person.Profile;
 import nl.topicus.lan.dashboard.models.ELModelFactory;
 import nl.topicus.lan.dashboard.pages.AbstractSecureBasePage;
 
-import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
-
-import com.ibm.icu.util.GenderInfo.Gender;
 
 public class ProfilePage extends AbstractSecureBasePage
 {
@@ -24,7 +22,10 @@ public class ProfilePage extends AbstractSecureBasePage
 	public ProfilePage()
 	{
 		super();
-		profileModel = initializeModel();
+
+		if (profileModel == null)
+			profileModel = initializeModel();
+
 		initializeForm();
 	}
 
@@ -33,6 +34,13 @@ public class ProfilePage extends AbstractSecureBasePage
 	 */
 	private void initializeForm()
 	{
+		AutoFieldSet<Profile> fieldset =
+			new AutoFieldSet<Profile>("fieldset", profileModel, "Profile");
+		fieldset.setRenderMode(RenderMode.EDIT);
+		fieldset.setPropertyNames("nickname", "name", "surname", "lastname", "gender",
+			"tableNumber");
+		fieldset.setSortAccordingToPropertyNames(true);
+
 		Form<Profile> form =
 			new Form<Profile>("form", new CompoundPropertyModel<Profile>(profileModel))
 			{
@@ -49,14 +57,7 @@ public class ProfilePage extends AbstractSecureBasePage
 				}
 			};
 
-		form.add(new TextField<String>("nickname"));
-
-		// Personal
-		form.add(new TextField<String>("name"));
-		form.add(new TextField<String>("surname"));
-		form.add(new TextField<String>("lastname"));
-		form.add(new DropDownChoice<Gender>("gender"));
-		form.add(new TextField<Integer>("tableNumber"));
+		form.add(fieldset);
 
 		add(form);
 	}

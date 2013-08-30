@@ -2,13 +2,14 @@ package nl.topicus.lan.dashboard.entities.person;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 
+import nl.topicus.cobra.types.personalia.Geslacht;
 import nl.topicus.lan.dashboard.entities.BaseLanEntity;
 
 import org.hibernate.annotations.AccessType;
-
-import com.ibm.icu.util.GenderInfo.Gender;
 
 @Entity
 @AccessType("field")
@@ -37,8 +38,9 @@ public class Profile extends BaseLanEntity
 	@Column(nullable = false)
 	private String lastname;
 
+	@Enumerated(value = EnumType.STRING)
 	@Column(nullable = false)
-	private Gender gender;
+	private Geslacht gender;
 
 	@Column(nullable = false)
 	private int tableNumber;
@@ -93,12 +95,12 @@ public class Profile extends BaseLanEntity
 		this.lastname = lastname;
 	}
 
-	public Gender getGender()
+	public Geslacht getGender()
 	{
 		return gender;
 	}
 
-	public void setGender(Gender gender)
+	public void setGender(Geslacht gender)
 	{
 		this.gender = gender;
 	}
