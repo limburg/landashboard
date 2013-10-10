@@ -13,6 +13,11 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
+/**
+ * Steam api Key: C12743387314C611AB8422E430DA068E
+ * 
+ * @author Xanx
+ */
 public class ProfilePage extends AbstractSecureBasePage
 {
 	private static final long serialVersionUID = 1L;

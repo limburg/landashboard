@@ -4,7 +4,48 @@
 	</head>
 	<body>
 		<wicket:extend>
-		<div wicket:id="tablePanel"></div>
+		<div id="menuPanel" class="menuPanel">
+			<div class="iconPanel"></div>
+		</div>
+		<div id="competitionPanel" class="competitionPanel">
+			<br/>
+			<div style="padding-left: 30%; font-family: 'News Cycle', sans-serif;">
+				  <p style="color: black; font-size: 20pt; font-weight: 700;">Competities</p>
+				  <p style="color: white; font-size: 16pt; font-weight: 300;">Nu</p>
+				  <div style="padding: 2px; color: black; font-size: 11pt; font-weight: 300;">
+				  	<div style="float: left;"><img src="/img/icon_add_lan.png" style="position: relative; bottom: 3px; width: 20px;" />Unreal Tournament</div>
+				  	<div style="float: right; padding-right: 10px;">23 min <img src="/img/icon_bel_off.png" style="position: relative; bottom: 3px; height: 20px;"/></div>
+				  	<div style="clear: both;"></div>
+				  </div>
+				  <div style="padding: 2px; color: black; font-size: 11pt; font-weight: 300;">
+				  	<div style="float: left;"><img src="/img/icon_rem_lan.png" style="position: relative; bottom: 3px; width: 20px;" />Unreal Tournament</div>
+				  	<div style="float: right; padding-right: 10px;">23 min <img src="/img/icon_bel_on.png" style="position: relative; bottom: 3px; height: 20px;"/></div>
+				  	<div style="clear: both;"></div>
+				  </div>
+				  <div style="padding: 2px; color: black; font-size: 11pt; font-weight: 300;">
+				  	<div style="float: left;"><img src="/img/icon_rem_lan.png" style="position: relative; bottom: 3px; width: 20px;" />Unreal Tournament</div>
+				  	<div style="float: right; padding-right: 10px;">23 min <img src="/img/icon_bel_on.png" style="position: relative; bottom: 3px; height: 20px;"/></div>
+				  	<div style="clear: both;"></div>
+				  </div>
+				  <br/>
+				  <p style="color: white; font-size: 16pt; font-weight: 300;">Straks</p>
+				  <p style="color: white; font-size: 16pt; font-weight: 300;">Programma</p>
+				  <p style="color: black; font-size: 20pt; font-weight: 700;">Bazen</p>
+			</div>
+		</div>
+		<div id="overviewPanel" class="overviewPanel">
+			<div id="searchPanel" class="searchPanel">
+				<form style=" width: 100%; float: right;">
+					<input class="searchField" style="	border: 1px solid #000000; 
+						-webkit-border-radius: 0px;
+						-moz-border-radius: 0px;
+						border-radius: 0px;" type="text" />
+					<img style="position: relative; height: 30px; bottom: 6px;" src="/img/icon_sound_lan.png" />
+				</form>
+			</div>
+			<div class="tablePanel" wicket:id="tablePanel"></div>
+		</div>
+
 		</wicket:extend>		
 	</body>
 </html>

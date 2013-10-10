@@ -1,0 +1,86 @@
+/*!
+ * Dashboard base CSS
+ */
+html {
+ 	height: 100%;
+ 	min-width: 1252px;
+}
+ 
+body {
+    height: 100%;	
+}
+ 	
+div.menuPanel { 
+	z-index: 2;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	 display:inline;
+	 
+	min-width: 80px;
+	width: 6%;
+	max-width: 117px;
+	
+	background-color: rgb(51,51,51);
+	
+	height:auto !important; 
+	height:100%; 
+
+	min-height:100%;
+}
+	
+div.menuPanel div.iconPanel {
+	position: absolute;
+	top: 50%;
+	right: 0px;
+	margin-top: -173px;
+	 
+	background-image: url('/img/icons_lan.png');
+	-moz-background-size:100% 100%;
+	-webkit-background-size:100% 100%;
+	background-size:100% 100%;
+
+	float: left;
+	
+	width: 80px;
+	height: 347px;
+}
+
+.competitionPanel {
+	position: absolute;
+	display:inline;
+	
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+	
+	min-width: 300px;
+	width: 24%;
+	max-width: 450px;
+
+	background-color: rgb(86,86,86);
+	
+	height:auto !important; 
+	height:100%; 
+
+	min-height:100%;
+}
+
+.overviewPanel {
+	width: 76%;
+ 
+	z-index: 0;
+	float: right;
+}
+
+.searchPanel {
+	text-align: center;
+}
+
+.searchField {
+	width: 80%; background: url('/img/icon_search_lan.png') no-repeat right top; background-size: 30px;
+}
+.tablePanel {
+	clear: both;
+	background-color: red;
+}
