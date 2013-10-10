@@ -23,7 +23,7 @@ public class BaseEntity implements Serializable, TransientIdObject
 	private static final long serialVersionUID = 1L;
 
 	@Transient
-	private EntityManager em = null;
+	private transient EntityManager em = null;
 
 	@Id()
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "IdSequence")

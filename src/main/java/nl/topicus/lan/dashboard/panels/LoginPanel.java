@@ -2,7 +2,9 @@ package nl.topicus.lan.dashboard.panels;
 
 import javax.inject.Inject;
 
+import nl.topicus.lan.dashboard.DashboardSession;
 import nl.topicus.lan.dashboard.pages.personal.ProfilePage;
+import nl.topicus.lan.dashboard.pages.personal.TablePage;
 import nl.topicus.lan.dashboard.security.AuthenticationUtil;
 
 import org.apache.shiro.authc.AuthenticationException;
@@ -28,7 +30,11 @@ public class LoginPanel extends Panel
 
 		if (AuthenticationUtil.isLoggedIn())
 		{
-			setResponsePage(ProfilePage.class);
+			if (DashboardSession.get().getAccount().getObject().getProfile() == null)
+				setResponsePage(ProfilePage.class);
+			else
+				setResponsePage(TablePage.class);
+
 			return;
 		}
 

@@ -4,17 +4,17 @@ import nl.topicus.cobra.web.components.form.AutoFieldSet;
 import nl.topicus.cobra.web.components.form.RenderMode;
 import nl.topicus.cobra.web.components.form.modifier.LabelModifier;
 import nl.topicus.lan.dashboard.DashboardSession;
+import nl.topicus.lan.dashboard.entities.person.Account;
 import nl.topicus.lan.dashboard.entities.person.Profile;
 import nl.topicus.lan.dashboard.models.ELModelFactory;
 import nl.topicus.lan.dashboard.pages.AbstractSecureBasePage;
 
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 
 public class ProfilePage extends AbstractSecureBasePage
 {
-
 	private static final long serialVersionUID = 1L;
 
 	private Form<Void> form;
@@ -25,10 +25,24 @@ public class ProfilePage extends AbstractSecureBasePage
 	{
 		super();
 
-		if (profileModel == null)
-			profileModel = initializeModel();
-
+		initializeModel();
 		initializeForm();
+	}
+
+	private void initializeModel()
+	{
+		Profile newProfile;
+		if (DashboardSession.get().getAccount().getObject().getProfile() != null)
+		{
+			newProfile = DashboardSession.get().getAccount().getObject().getProfile();
+			profileModel = ELModelFactory.getModel(newProfile);
+		}
+		else
+		{
+			newProfile = new Profile();
+			newProfile.setAccount(DashboardSession.get().getAccount().getObject());
+			profileModel = new Model<Profile>(newProfile);
+		}
 	}
 
 	/**
@@ -51,45 +65,29 @@ public class ProfilePage extends AbstractSecureBasePage
 			@Override
 			public void onSubmit()
 			{
-
 				profileModel.getObject().saveOrUpdateAndCommit();
+
+				Account acc = DashboardSession.get().getAccount().getObject();
+				if (acc.getProfile() == null)
+				{
+					acc.setProfile(profileModel.getObject());
+					acc.updateAndCommit();
+				}
+
+				setResponsePage(TablePage.class);
 			}
 		};
 
 		form.add(fieldset.setOutputMarkupId(true));
-
-		add(new Link<Void>("tableLink")
-		{
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void onClick()
-			{
-				setResponsePage(TablePage.class);
-
-			}
-		});
-
 		add(form.setOutputMarkupId(true));
 	}
 
-	/**
-	 * Returns new profile, or current profile as model.
-	 */
-	private IModel<Profile> initializeModel()
+	@Override
+	public void onDetach()
 	{
-		IModel<Profile> model = null;
-		/*
-		 * if (DashboardSession.get().getAccount().getObject().getProfile() != null) {
-		 * model = ELModelFactory.getModel(DashboardSession.get().getAccount().getObject()
-		 * .getProfile()); } else
-		 */
-		{
-			Profile newProfile = new Profile();
-			newProfile.setAccount(DashboardSession.get().getAccount().getObject());
-			model = ELModelFactory.getModel(newProfile);
-		}
-		return model;
+		if (profileModel != null)
+			this.profileModel.detach();
+		super.onDetach();
 	}
 
 }
