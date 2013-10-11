@@ -32,7 +32,7 @@
 			var self;
 			self = this;
 			emptyTableDiv = document.createElement("div");
-			emptyTableDiv.style="height:" + self.calculateYSize() + "px; width:" + self.calculateXSize() + "px; float: left; border: 1px solid black;";
+			emptyTableDiv.style="height:" + self.calculateYSize() + "px; width:" + self.calculateXSize() + "px; float: left; border: 1px solid white;";
 			self.getMainDiv().append(emptyTableDiv);
 		},
 		
@@ -40,7 +40,7 @@
 			var table;
 			self = this;
 			table = document.createElement("div");
-			table.style="height:" + self.calculateYSize() + "px; width:" + self.calculateXSize() + "px; background-color: red; float: left; border: 1px solid black;";
+			table.style="height:" + self.calculateYSize() + "px; width:" + self.calculateXSize() + "px; background-color: rgb(178,178,178); float: left; border: 1px solid rgb(161,161,161);";
 			table.id = id;
 			self.getMainDiv().append(table);			
 		},

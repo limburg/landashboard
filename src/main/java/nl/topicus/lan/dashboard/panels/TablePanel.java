@@ -65,20 +65,33 @@ public class TablePanel extends Panel
 		tableMap.put("1,5", "tableName5");
 		tableMap.put("1,6", "tableName6");
 		tableMap.put("1,7", "tableName7");
+		tableMap.put("2,1", "tableName8");
+		tableMap.put("2,2", "tableName9");
+		tableMap.put("2,3", "tableName10");
+		tableMap.put("2,4", "tableName11");
+		tableMap.put("2,5", "tableName12");
+		tableMap.put("2,6", "tableName13");
+		tableMap.put("2,7", "tableName14");
 
-		tableMap.put("4,1", "tableName8");
-		tableMap.put("4,2", "tableName9");
-		tableMap.put("4,3", "tableName10");
-		tableMap.put("4,4", "tableName11");
-		tableMap.put("4,5", "tableName12");
-		tableMap.put("4,6", "tableName13");
-		tableMap.put("4,7", "tableName14");
-
+		tableMap.put("5,1", "tableName15");
+		tableMap.put("5,2", "tableName16");
+		tableMap.put("5,3", "tableName17");
+		tableMap.put("5,4", "tableName18");
+		tableMap.put("5,5", "tableName19");
+		tableMap.put("5,6", "tableName20");
+		tableMap.put("5,7", "tableName21");
+		tableMap.put("6,1", "tableName22");
+		tableMap.put("6,2", "tableName23");
+		tableMap.put("6,3", "tableName24");
+		tableMap.put("6,4", "tableName25");
+		tableMap.put("6,5", "tableName26");
+		tableMap.put("6,6", "tableName27");
+		tableMap.put("6,7", "tableName28");
 		try
 		{
 			options.put("tableMap", mapper.writeValueAsString(tableMap));
 			options.put("xsize", "20");
-			options.put("ysize", "20");
+			options.put("ysize", "10");
 		}
 		catch (JsonGenerationException e)
 		{
